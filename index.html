@@ -10,49 +10,84 @@
       font-family: sans-serif;
       background-color: #f4f4f4;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     nav {
-      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     nav a {
-      margin: 0 1rem;
-      color: #3366cc;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
     }
 
-    img {
-      border-radius: 50%;
-      max-width: 200px;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1rem;
     }
 
-    p {
+    .intro img {
+      max-width: 180px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .intro p {
       max-width: 600px;
       font-size: 1.1rem;
       line-height: 1.6;
     }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      padding: 2rem 1rem;
+    }
   </style>
 </head>
 <body>
-  <img src="assets/profile.jpg" alt="Captain WSC Photo" />
-  <h1>Captain WSC</h1>
-  <p>Systems & IoT enthusiast. Undergraduate researcher at UIUC. Survivor of compiler crashes and zombie simulations. I build memory-efficient deep learning tools and dream of building smarter, faster, resilient systems.</p>
-  
-  <nav>
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="cv.html">CV</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <header>
+    <div class="container">
+      <h1>Captain WSC</h1>
+      <nav>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="cv.html">CV</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="intro">
+    <img src="assets/profile.jpg" alt="Captain WSC Photo" />
+    <p>Hi, I’m Captain WSC — a computer science student passionate about systems, IoT, and surviving zombie apocalypses. Currently working with Prof. Tarek Abdelzaher on memory-efficient deep learning compilers. Welcome aboard!</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Captain WSC. All rights reserved.</p>
+  </footer>
 </body>
 </html>
