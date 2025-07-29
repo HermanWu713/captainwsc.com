@@ -3,147 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Captain WSC | Portfolio</title>
+  <title>Captain WSC</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
       background-color: #f4f4f4;
       color: #333;
-      line-height: 1.6;
-    }
-    header, section, footer {
-      padding: 2rem;
-    }
-    header {
-      background: #222;
-      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       padding: 2rem;
     }
-    
-    header h1 {
-      margin: 0.2rem 0;
-    }
-    
-    header p {
-      margin: 0.5rem 0 1rem;
-    }
-    
+
     nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      margin-top: 2rem;
     }
 
     nav a {
       margin: 0 1rem;
-      color: #fff;
+      color: #3366cc;
       text-decoration: none;
       font-weight: bold;
     }
-    h1, h2 {
-      margin-top: 0;
-    }
-    .section {
-      background: white;
-      margin: 1.5rem 0;
-      padding: 1.5rem;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #3366cc;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem;
+
+    img {
+      border-radius: 50%;
+      max-width: 200px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
+    p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
-    <header>
-      <div class="container">
-        <h1>Captain WSC</h1>
-        <p>Systems & IoT Enthusiast | Researcher | Corgi Dad</p>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#resume">Resume</a>
-          <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#blog">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>Hi, I’m Captain WSC — a computer science student passionate about systems, IoT, and surviving zombie apocalypses. Currently working with Prof. Tarek Abdelzaher on research and building memory-efficient deep learning compilers.</p>
-  </section>
-
-  <section id="resume" class="section">
-    <h2>Resume</h2>
-    <ul>
-      <li>Undergraduate Research Assistant @ UIUC</li>
-      <li>3.95 GPA</li>
-      <li>Experience in CUDA, C++, Python, Embedded Systems</li>
-      <li>Seeking PhD in Systems/IoT in Fall 2026</li>
-    </ul>
-    <p><a href="#">Download CV (PDF)</a></p>
-  </section>
-
-  <section id="research" class="section">
-    <h2>Research & Publications</h2>
-    <p>Check out my work on memory optimization in DL frameworks and execution planning strategies.</p>
-    <ul>
-      <li><strong>Title:</strong> TBD | <em>Conference TBD</em></li>
-      <li><strong>In Progress:</strong> Tensor lifetime optimization, GPU execution planning</li>
-    </ul>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Melon Compiler</strong> - Deep learning memory planner with recomputation support</li>
-      <li><strong>Terraria GCP Server</strong> - Docker-hosted, mod-supported game server</li>
-      <li><strong>Phantom Dawn</strong> - Tactical roleplay simulation for post-apocalyptic extraction</li>
-    </ul>
-  </section>
-
-  <section id="blog" class="section">
-    <h2>Blog</h2>
-    <p>Coming soon... maybe after the next major system debug session.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:captainwsc@example.com">captainwsc@example.com</a></p>
-    <p>
-      <a href="https://github.com/CaptainWSC">GitHub</a> |
-      <a href="https://scholar.google.com">Google Scholar</a> |
-      <a href="https://linkedin.com">LinkedIn</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Captain WSC. All rights reserved.</p>
-  </footer>
+  <img src="assets/profile.jpg" alt="Captain WSC Photo" />
+  <h1>Captain WSC</h1>
+  <p>Systems & IoT enthusiast. Undergraduate researcher at UIUC. Survivor of compiler crashes and zombie simulations. I build memory-efficient deep learning tools and dream of building smarter, faster, resilient systems.</p>
+  
+  <nav>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="cv.html">CV</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </body>
 </html>
-
-like this one?
-
-now i have this basic template, what else should i add
