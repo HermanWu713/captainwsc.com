@@ -83,3 +83,36 @@ footer {
   background-color: #222;
   color: #ccc;
 }
+.blog-list {
+    font-size: 1.2rem;
+}
+.blog-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.blog-list .blog-title {
+    font-weight: bold;
+    color: #222;
+}
+
+.blog-list .date {
+    margin-left: 0;
+    margin-right: 0;
+    color: #888;
+    font-size: 1.2rem;
+    min-width: 90px;
+    text-align: right;
+}
+
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.post-date {
+  color: #999;
+}

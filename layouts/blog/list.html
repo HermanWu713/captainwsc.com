@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <div class="container">
+    <h2>Blog</h2>
+    <ul class="blog-list">
+      {{ range .Pages.ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+          <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

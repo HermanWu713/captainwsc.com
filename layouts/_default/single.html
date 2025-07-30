@@ -1,6 +1,11 @@
 {{ define "main" }}
-  <article>
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
+  <div class="container blog-post">
+    <article>
+      <h1>{{ .Title }}</h1>
+      <p class="post-date">{{ .Date.Format "January 2, 2006" }}</p>
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </article>
+  </div>
 {{ end }}
