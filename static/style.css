@@ -113,6 +113,12 @@ footer {
   padding: 2rem 1rem;
 }
 
+.blog-post p {
+  margin-bottom: 2.2em;
+  line-height: 1.75;
+  font-size: 1.1rem;
+}
+
 .post-date {
   color: #999;
 }
