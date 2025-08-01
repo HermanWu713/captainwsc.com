@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on My New Hugo Site</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://example.org/blog/</link>
     <description>Recent content in Blog on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Freelist Memory Buffer Allocator</title>
-      <link>http://localhost:1313/blog/freelist_memory_scheduling/</link>
+      <link>https://example.org/blog/freelist_memory_scheduling/</link>
       <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/freelist_memory_scheduling/</guid>
+      <guid>https://example.org/blog/freelist_memory_scheduling/</guid>
       <description>&lt;p&gt;&lt;br&gt;&#xA;In modern computer systems, memory is one of the most precious and constrained resources — a limitation that&amp;rsquo;s especially pronounced in the era of artificial intelligence. In the domain of on-device training, memory bottleneck have become one of the hardest obstacle to overcome; neural networks are notoriously memory hungry, especially during backpropagation, which involves storing and manipulating large amounts of intermediate data. Devices with 8GB RAM often struggle to survive, and the situation is even more dire for smaller, resource-constrained hardware.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I Love Bananas</title>
-      <link>http://localhost:1313/blog/banana/</link>
+      <link>https://example.org/blog/banana/</link>
       <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/banana/</guid>
+      <guid>https://example.org/blog/banana/</guid>
       <description>&lt;p&gt;Bananas are great because&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,6 +1,6 @@
 +++
 date = '2025-07-28T22:56:42-05:00'
-draft = true
+draft = false
 title = 'Quantum Banana Routing in IoT Mesh Networks'
 +++
 
