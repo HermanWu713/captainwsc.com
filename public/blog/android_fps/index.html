@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain WSC</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+  <div class="container">
+    <h1><a href="/" style="color: white; text-decoration: none;">Captain WSC</a></h1>
+    <nav>
+      <a href="/research">Research</a>
+      <a href="/projects">Projects</a>
+      <a href="/cv">CV</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  
+  <div class="container blog-post">
+    <article>
+      <h1>Android Application FPS Recording</h1>
+      <p class="post-date">August 4, 2025</p>
+      <div class="content">
+        <h1 id="how-to-record-an-applications-fps-frames-per-second-data-on-android-devices-without-root-access">How to record an application&rsquo;s FPS (Frames per Second) data on Android devices without root access</h1>
+<p>When conducting experiment on our training script&rsquo;s effect on mobile application&rsquo;s performance, we hit a barrier because conventional method to dump frame rate requires root access to the phone; however, it is very hard if not impossible to get root on US versions of Samsung S25 Ultra because Samsung locked OEM settings. As a result, we need to acquire information needed using dumpsys. Let&rsquo;s start with an example using Genshin Impact.</p>
+<h2 id="grepping-surfaceflinger-data">Grepping SurfaceFlinger data</h2>
+<p>Android&rsquo;s built-in tool dumpsys SurfaceFlinger provides detailed info about graphical surfaces and rendering stats. We need to locate the exact surface needed to fetch frame rendering data. To do that, run:</p>
+<p><code>dumpsys SurfaceFlinger | grep -i Genshin</code></p>
+<p>This command returns the layers associated with Genshin Impact (by matching name). What we need is the one that contains (BLAST). For example, the output might look like this:</p>
+<pre tabindex="0"><code>$ dumpsys SurfaceFlinger | grep -i Genshin
+  Layer [4012] Background for SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#4012
+  Layer [4011] SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011
+  Layer [4006] com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity$_30153#4006
+  Layer [4006] com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity$_30153#4006
+  Layer [4011] SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011
+  Layer [4012] Background for SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#4012
+  Layer [3885] 5a0597c ActivityRecordInputSink com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity#3885
+ │  │  │     │  │  │     ├─ 8a8c8ff com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity#3887
+ │  │  │     │  │  │     │  ├─ com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity$_30153#4006 requestedFrameRate: {0.00 Hz FrameRateCompatibility::Default FrameRateCategory::NoPreference}
+ │  │  │     │  │  │     │  │  ├─ (Relative) SurfaceView[com.miHoYo.GenshinImpact[...]o.GetMobileInfo.MainActivity]@0#4010 parent=4009
+ │  │  │     │  │  │     │  │  │  └─ SurfaceView[com.miHoYo.GenshinImpact[...]bileInfo.MainActivity]@0(BLAST)#4011
+ │  │  │     │  │  │     │  │  └─ Bounds for - com.miHoYo.GenshinImpac[...]Yo.GetMobileInfo.MainActivity@1#4009
+ SurfaceView[com.miHoYo.GenshinImpact[...]bileInfo.MainActivity]@0(BLAST)#4011
+ 0000000000000000 | 00 | -           |    0.0     0.0  2340.0  1080.0 |    0     0  2340  1080 |    0 |   0 | Background for SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#4012
+ 000075c90000008f | 00 | RGBA_8888   |    0.0     0.0  1920.0   886.0 |    0     0  2340  1080 |    0 |   0 | SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011
+ 000075c900000082 | 00 | RGBA_8888   |    0.0     0.0  2340.0  1080.0 |    0     0     0     0 |    0 |   0 | com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity$_30153#4006
++ 8a8c8ff com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity#3887 uid=1000 id=3887
++ 5a0597c ActivityRecordInputSink com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity#3885 uid=1000 id=3885
++ ActivityRecord{ed625a u0 com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity t140}#3876 uid=1000 id=3876
++ Background for SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#4012 uid=10363 id=4012
++ SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011 uid=10363 id=4011
++ SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#4010 uid=10363 id=4010
++ Bounds for - com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity@1#4009 uid=10363 id=4009
++ com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity$_30153#4006 uid=10363 id=4006
+  - Output Layer 0xb400006e406e48e0(SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011)
+layer: 1107 name:     SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0#7(BLAST Consumer)7 z: 0 composition: 2/2 alpha: 65535 format:         RGBA_8888_UBWC dataspace:0x08810000 transform: 90/0/0 buffer_id: 0xb4000074a8a19fb0 secure: 0
+
+...
+</code></pre><p>What we want is <code>SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011</code></p>
+<p>We will be using this surface to probe the actual frame rate data. Use this command to dump frame timestamp data</p>
+<pre tabindex="0"><code>adb shell dumpsys SurfaceFlinger --latency &#34;SurfaceView[com.miHoYo.GenshinImpact/com.miHoYo.GetMobileInfo.MainActivity]@0(BLAST)#4011&#34;
+</code></pre><p>The output typically looks like this:</p>
+<pre tabindex="0"><code>16666666
+11704201475481  11704226283137  11704220980012
+11704233819856  11704259566262  11704253653189
+11704266841627  11704292850950  11704286300221
+...
+</code></pre><p>Each line (after the first) contains three timestamps (in nanoseconds):</p>
+<ol>
+<li>Frame start time</li>
+<li>VSYNC (vertical sync) time</li>
+<li>Frame ready (or presented) time</li>
+</ol>
+<p>Using these timestamps, you can compute frame durations and infer FPS over time.</p>
+<h2 id="python-code-to-convert-data-to-frame-rate">Python code to convert data to frame rate</h2>
+<pre tabindex="0"><code>import numpy as np
+
+data = &#34;&#34;&#34;
+11704201475481  11704226283137  11704220980012
+11704233819856  11704259566262  11704253653189
+11704266841627  11704292850950  11704286300221
+...
+
+&#34;&#34;&#34;  # Paste your own data
+
+frame_times = [int(line.split()[0]) for line in data.strip().splitlines()]
+intervals = np.diff(frame_times)
+avg_interval = np.mean(intervals)
+
+fps = 1_000_000_000 / avg_interval
+print(f&#34;Average FPS: {fps:.2f}&#34;)
+</code></pre><p>Basically you just need the first column to do the calculations</p>
+<h2 id="shell-script-to-periodically-log-frame-rate-data-of-a-device">Shell script to periodically log frame rate data of a device</h2>
+
+      </div>
+    </article>
+  </div>
+
+
+
+  <footer>
+    <p>&copy; 2025 Captain WSC. All rights reserved.</p>
+  </footer>
+</body>
+</html>

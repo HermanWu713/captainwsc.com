@@ -6,8 +6,15 @@
     <description>Recent content in Captain WSC on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Application FPS Recording</title>
+      <link>https://example.org/blog/android_fps/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://example.org/blog/android_fps/</guid>
+      <description>&lt;h1 id=&#34;how-to-record-an-applications-fps-frames-per-second-data-on-android-devices-without-root-access&#34;&gt;How to record an application&amp;rsquo;s FPS (Frames per Second) data on Android devices without root access&lt;/h1&gt;&#xA;&lt;p&gt;When conducting experiment on our training script&amp;rsquo;s effect on mobile application&amp;rsquo;s performance, we hit a barrier because conventional method to dump frame rate requires root access to the phone; however, it is very hard if not impossible to get root on US versions of Samsung S25 Ultra because Samsung locked OEM settings. As a result, we need to acquire information needed using dumpsys. Let&amp;rsquo;s start with an example using Genshin Impact.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Freelist Memory Buffer Allocator</title>
       <link>https://example.org/blog/freelist_memory_scheduling/</link>
