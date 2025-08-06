@@ -122,3 +122,18 @@ footer {
 .post-date {
   color: #999;
 }
+
+pre {
+  background-color: #f4f4f4;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre; 
+  font-family: monospace;
+  font-size: 0.95em;
+  max-width: 100%;
+}
+
+code {
+  display: block;
+}
